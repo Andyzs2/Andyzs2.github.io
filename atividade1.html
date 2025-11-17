@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 01</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 600px;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a90e2;
+            font-size: 32px;
+        }
+
+        .row {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        label {
+            width: 120px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 5px;
+            width: 250px;
+        }
+
+        button {
+            margin-left: 20px;
+            padding: 8px 20px;
+            background: #1e63e9;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background: #154bb0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Atividade 01</h1>
+
+        <div class="row">
+            <label>Nome Completo:</label>
+            <input id="nomeCompleto" type="text">
+            <button onclick="separar()"> >></button>
+        </div>
+
+        <div class="row">
+            <label>Nome:</label>
+            <input id="nome" type="text" readonly>
+        </div>
+
+        <div class="row">
+            <label>Sobrenome:</label>
+            <input id="sobrenome" type="text" readonly>
+        </div>
+    </div>
+
+    <script>
+        function separar() {
+            const nomeCompleto = document.getElementById("nomeCompleto").value.trim();
+
+            if (nomeCompleto === "") {
+                alert("Digite o nome completo!");
+                return;
+            }
+
+            const partes = nomeCompleto.split(" ");
+
+            const primeiroNome = partes[0];
+            const ultimoSobrenome = partes.slice(1).join(" ");
+
+            document.getElementById("nome").value = primeiroNome;
+            document.getElementById("sobrenome").value = ultimoSobrenome;
+        }
+    </script>
+
+</body>
+</html>
