@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cálculo do IMC</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 600px;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a90e2;
+            font-size: 32px;
+        }
+
+        .form-box {
+            border: 2px solid #4a90e2;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 250px;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 8px 20px;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin-top: 15px;
+            padding: 15px;
+            border: 1px solid #aaa;
+            min-height: 60px;
+            width: 250px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>Cálculo do IMC</h1>
+
+        <div class="form-box">
+            <label>Nome:</label>
+            <input type="text" id="nome">
+
+            <label>Peso:</label>
+            <input type="number" id="peso" step="0.1">
+
+            <label>Altura:</label>
+            <input type="number" id="altura" step="0.01">
+
+            <br>
+
+            <button onclick="calcularIMC()">Calcular IMC</button>
+
+            <div id="resultado"></div>
+        </div>
+    </div>
+
+    <script>
+        function calcularIMC() {
+            const nome = document.getElementById("nome").value;
+            const peso = parseFloat(document.getElementById("peso").value);
+            const altura = parseFloat(document.getElementById("altura").value);
+
+            if (!nome || !peso || !altura) {
+                document.getElementById("resultado").innerText =
+                    "Preencha todos os campos.";
+                return;
+            }
+
+            const imc = peso / (altura * altura);
+
+            document.getElementById("resultado").innerHTML =
+                `Olá, <strong>${nome}</strong>.<br>
+                 O seu IMC é de <strong>${imc.toFixed(2)}</strong>`;
+        }
+    </script>
+
+</body>
+</html>
