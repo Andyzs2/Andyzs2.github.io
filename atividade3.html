@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Troca de cor do Robotron</title>
+</head>
+<body>
+
+    <div style="text-align:center">
+        <button id="btn-prev"><<</button>
+
+        <img id="robotron" src="img/robotron-rosa.png" width="250">
+
+        <button id="btn-next">>></button>
+    </div>
+
+    <script>
+        const imagens = [
+            "img/robotron-rosa.png",
+            "img/robotron-cinza.png",
+            "img/robotron-preto.png",
+            "img/robotron-amarelo.png",
+            "img/robotron-azul.png"
+        ];
+
+        let indice = 0;
+        const robotron = document.getElementById("robotron");
+
+        document.getElementById("btn-prev").addEventListener("click", () => {
+            indice--;
+            if (indice < 0) indice = imagens.length - 1;
+            robotron.src = imagens[indice];
+        });
+
+        document.getElementById("btn-next").addEventListener("click", () => {
+            indice++;
+            if (indice >= imagens.length) indice = 0;
+            robotron.src = imagens[indice];
+        });
+    </script>
+
+</body>
+</html>
